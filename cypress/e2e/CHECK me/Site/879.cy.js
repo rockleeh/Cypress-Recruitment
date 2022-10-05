@@ -28,26 +28,19 @@ describe('879', function () {
     });
     //logout
     cy.get('.p-0.btn > .fa').click()
-    cy.get('.widget-content-right > .btn-pill').click()
-    cy.wait(2000)
+    cy.get('.widget-content-right > .btn-pill').click().wait(2000)
     cy.get('#loginForm > .btn').should('be.visible')
   })
 
-  it('CHKME-266', function () {
-    cy.wait(1500)
+  it('CHKME-266: Ajout d"un nouveau site', function () {
     cy.get(':nth-child(11) > :nth-child(6) > a').click()
-    cy.wait(1500)
-
     cy.get('#create-park').should('be.visible')
     cy.get('#create-park').click()
-    cy.wait(1500)
     cy.get('.card-header').should('be.visible')
     cy.get('#catu_parkbundle_park_name').type('site-test-0056').wait(1000) //++
     cy.get('#btn-create').click().wait(1000)
     cy.get('.alert').should('be.visible').contains('Succès ! Site créé avec succès')
     cy.log("OK")
-  })
-
-  
+  })  
 
 })
